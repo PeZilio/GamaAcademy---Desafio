@@ -1,0 +1,184 @@
+{
+    "open api": "3.0.0",
+
+    "info": {
+        "tittle": "API Desafio",
+        "description": "api do desafio",
+        "version":"0.0.1"
+},
+
+"servers":[
+{
+    "url": "https://jobsnetdesafiogamaacademy.netlify.app/",
+    "description": "ambiente de desenvolvimento"
+}
+],
+
+"paths":{
+    "/register": {
+        "post": {
+            "summary": "Cadastro de candidato",
+            "decription": "Rota de cadastro de usuário, recebe: nome, email, gênero, cep e demais informações",
+            "tags": ["candidato"],
+            "requestBody":{
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {
+                                "nomecompelto": {
+                                    "type": "string",
+                                    "example": "Penelope"
+                                },
+                                "datanasc": {
+                                    "type": "string",
+                                    "example": "29/12/1991"
+                                },
+                                "genero": {
+                                    "type": "string",
+                                    "example": "Feminino"
+                                },
+                                "estcivil":{
+                                    "type": "string",
+                                    "example": "Solteiro"
+                                },
+                                "identidade":{
+                                    "type": "string",
+                                    "example": "00000001"
+                                },
+                                "cpf":{
+                                    "type": "string",
+                                    "example": "667.719.250-48"
+                                },
+                                "tipohabilitacao":{
+                                    "type": "string",
+                                    "example": "A"
+                                },
+                                "veiculo":{
+                                    "type": "string",
+                                    "example": "Não"
+                                },
+                                "cep":{
+                                    "type": "string",
+                                    "example": "08527-080"
+                                },
+                                "rua":{
+                                    "type": "string",
+                                    "example": "Rua Pato Donald"
+                                },
+                                "numero":{
+                                    "type": "string",
+                                    "example": "123"
+                                },
+                                "complemento":{
+                                    "type": "string",
+                                    "example": "apto 2"
+                                },
+                                "bairro":{
+                                    "type": "string",
+                                    "example": "Parque Dourado"
+
+                                },
+                                "cidade":{
+                                    "type": "string",
+                                    "example": "Ferraz de Vasconcelos" 
+                                },
+                                "uf":{
+                                    "type": "string",
+                                    "example": "SP"
+                                },
+                                "telfixo1":{
+                                    "type": "string",
+                                    "example": "99999-0909"
+                                },
+                                "telfixo2":{
+                                    "type": "string",
+                                    "example": "99999-0909"
+                                },
+                                "telcontato":{
+                                    "type": "string",
+                                    "example": "99999-0909"
+                                },
+                                "nomecontato":{
+                                    "type": "string",
+                                    "example": "Joana"
+                                },
+                                "telcelular":{
+                                    "type": "string",
+                                    "example": "99999-0909"
+                                },
+                                "email":{
+                                    "type": "string"
+                                },
+                                "linkedin":{
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "skype":{
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "cargo":{
+                                    "type": "string",
+                                    "example": "Analista de Sistemas"
+                                    
+                                }
+                            },
+                            "required": [
+                                "cpf"
+                              ]
+                            }
+                          },
+                    
+                        "responses": {
+                          "301": {
+                            "description": "Cadastro efetuado, redireciona para a página de conclusão."
+                          },
+                          "400": {
+                            "description": "Formulário inválido (e.g. CPF já cadastrado)"
+                          },
+                          "500": {
+                            "description": "Erro na submissão para o banco de dados."
+                          }
+                        }
+                      }
+                    },
+                    "/find/{cpf}": {
+                      "get": {
+                        "tags": [
+                          "banco-de-curriculos"
+                        ],
+                        "summary": "Busca usuário pelo CPF",
+                        "description": "Busca o cadastro do usuário no banco de dados, informando o CPF",
+                        "operationId": "buscaCandidato",
+                        "produces": [
+                          "application/json"
+                        ],
+                        "parameters": [
+                          {
+                            "in": "path",
+                            "name": "cpf",
+                            "description": "CPF do candidato",
+                            "required": true,
+                            "type": "string"
+                          }
+                        ],
+                        "responses": {
+                          "200": {
+                            "description": "Candidato encontrado, retorna dados do cadastro"
+                          },
+                          "500": {
+                            "description": "Candidato não encontrado."
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "externalDocs": {
+                    "description": "Veja o projeto completo no GitHub",
+                    "url": "https://github.com/PeZilio/GamaAcademy---Desafio"
+                  }
+                }
+            }
+        }
+        
+                      
