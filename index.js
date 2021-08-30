@@ -5,7 +5,7 @@ const swaggerDocs = require("./swagger.jason");
 const routes = require ("./routes");
 const app = express();
 
-mongoose.connect("mongodb+srv://<username>:<Pipo29pipo*>@cluster0.bb4qp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://PenelopeZilio:<Pipo29pipo*>@cluster0.bb4qp.mongodb.net/Candidatos?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     UseCreateIndex: true,
 });
