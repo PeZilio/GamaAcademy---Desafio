@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bancocurriculo.css" media="screen"/>
+    <link rel="sortcut icon" href="logo_page.jpg" type="image/x-icon" />
+    <script src = "scriptcurriculo.js"></script>
+    <title> JobsNet - Cadastro </title>
+    <script src = "mascara.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src ="logo_page.jpg" width = "150" hight = " 150 "alt ="Logo JobsNet"> 
+            <h2 id ="titulo"> Recrutamento e Seleção</h2>   
+            <h3 id ="subtitulo"> Cadastro de Novos Talentos </h3>
+        </div>
+    
+    </header>
+
+    <main>
+        <section class ="formulario">
+            <form action ="/add" id ="cv_form">
+
+                <div class ="form-row">
+                    <fieldset>
+                        <label id ="grupo"> Dados Pessoais </label>
+                        <br>    
+                        <label for ="nomecompleto"> Nome Completo <span>*</span></label>
+                        <input type ="text" nome = "nomecompleto" id ="nomecompleto" placeholder ="Nome Completo" required>
+                        <label for ="datanasc"> Data de Nascimento <span>*</span></label>
+                        <input type ="date" nome ="datanasc" id ="datanasc" required>   
+                        <label for ="genero"> Gênero </label>
+                        <select id ="genero">
+                            <option selected disabled value =""> Selecione </option>
+                            <option> Masculino </option>
+                            <option> Feminino </option>
+                            <option> Não Binário </option>
+                            <option> Prefiro não dizer </option>
+                        </select>
+
+                        <label for = "estcivil"> Estado Civil </label>
+                        <select id = "estcivil">
+                            <option selected disabled value =""> Selecione </option> 
+                            <option> Solteiro(a) </option>
+                            <option> Casado(a) </option>
+                            <option> Divorciado(a) </option>
+                            <option> Separado(a) </option>
+                            <option> Viúvo(a) </option>
+                        </select>
+
+                        <label for="identidade"> Identidade <span>*</span></label>
+                        <input type="text" nome = "identidade" id = "identidade"  placeholder ="Informe apenas números"onkeyup="mascara('##.###.###-#',this,event)" required>
+                        <label for="cpf"> CPF <span>*</span></label>
+                        <input type="text" nome = "cpf" id ="cpf" placeholder ="Informe apenas números" onkeyup="mascara('###.###.###-##',this,event)" required>
+                        <br> 
+                    
+                        <fieldset>           
+                            <div class = "radio">
+                                <label> Habilitação? </label>
+                                <label for = "habilitacao">             
+                                <select id = "tipohabilitacao">
+                                    <option selected disabled value = ""> Selecione </option>
+                                    <option> Não possuo. </option>
+                                    <option> AB </option>
+                                    <option> A </option>
+                                    <option> B </option>
+                                    <option> C </option>
+                                    <option> D </option>
+                                    <option> E </option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                            <form action = "" method ="select">
+                                <label for ="veiculo"> Possui veículo? </label>
+                                <input type ="radio" name ="veiculo" value ="sim" checked /> Sim
+                                <input type ="radio" name ="veiculo" value ="nao" /> Não
+                            </form>  
+                            </div>
+                        </fieldset> 
+                    </fieldset>
+                </div>
+
+                <div class ="form-row">
+                    <fieldset>
+                        <form method ="get" action =".">
+                            <label id= "grupo"> Endereço </label>
+                            <br>
+                            <label> Cep: <span>*</span></label>
+                            <input name = "cep" type = "text" id = "cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);"/>
+                            <a href="https://buscacepinter.correios.com.br/app/endereco/index.php"> Consulte seu CEP </a>
+                            <br>
+                            <label> Logradouro <span>*</span></label>
+                            <input name ="rua" type ="text" id="rua" size="60" placeholder="Rua/Avenida/Alameda"required/>
+                            <label for ="numero"> Número <span>*</span></label>
+                            <input type ="text" nome ="numero" id="numero" onkeyup= "mascara('######',this,event)" required>
+                            <label for ="complemento"> Complemento </label>
+                            <input type="text" nome="complemento" id="complemento">
+                            <label> Bairro: <span>*</span></label>
+                            <input name="bairro" type="text" id="bairro" size="40"  required/>
+                            <label> Cidade: <span>*</span></label>
+                            <input name="cidade" type="text" id="cidade" size="40" required />
+                            <label>Estado: </label>
+                            <input name="uf" type="text" id="uf" size="2"  required/>
+                            <br>
+                            <br>
+                            <label id ="grupo"> Contato </label>
+                            <br>
+                            <label for ="telfixo1"> Telefone Fixo (1) </label>
+                            <input type="text" name="telfixo1" id="telfixo1" onkeyup= "mascara('(##) #### - ####',this,event)" required>
+                            <label for ="telfixo2"> Telefone Fixo (2) </label>
+                            <input type="text" name="telfixo2" id="telfixo2" onkeyup="mascara('(##) #### - ####',this,event)" required>
+                            <label for ="telcontato"> Telefone Contato </label>
+                            <input type="text" name="telcontato" id="telcontato" onkeyup="mascara('(##) ##### - ####',this,event)" required>
+                            <label for ="nomecontato"> Nome Contato </label>
+                            <input type="text" nome="nomecontato" id="nomecontato" placeholder="Falar com...">
+                            <label for ="celular"> Celular <span>*</span></label>
+                            <input type="text" nome ="telcelular" id ="telcelular"  onkeyup="mascara('(##) ##### - ####',this,event)" required>
+                            <label for ="email"> Email <span>*</span></label>
+                            <input type="email" nome="email" id="email" placeholder = "Ex.: exemplo@exemplo.com"required>
+                            <label for ="linkedin"> LinkedIn </label>
+                            <input type="url" nome="linkedin" id="linkedin" placeholder="Ex.: www.linkedin.com/in/usuário">
+                            <label for ="skype"> Skype </label>
+                            <input type="text" nome="skype" id="skype"> 
+                            <br>
+                            <label for="cargo">Cargo pretendido<span>*</span></label>
+                            <input type ="text" nome="cargo" id="cargo" placeholder="Ex. Desenvolvedor de Software">
+                        </form>
+                    </fieldset>
+                </div>
+                                
+               <button class ="botao" type="submit" onsubmit=""> Concluir cadastro </button>
+
+                <div class = "heavy">
+                    <p> <strong> Página desenvolvida por Penelope Zilio - Gama Academy_Start Tech </strong> </p>
+                </div>
+             
+            </form>
+        </section>
+    </main>
+</body>
+</html>
